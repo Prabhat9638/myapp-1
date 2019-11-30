@@ -1,0 +1,15 @@
+<h1>Employees</h1>
+
+
+<div class="table-responsive">
+    <table class="table">
+        
+            <tr *ngFor="let employee of employees">
+                <td> Name :{{employee.name}}</td>
+                <td> Address :{{employee.address}}</td>
+                <td> email :{{employee.email}}</td>
+            </tr>
+            </table>
+</div>
+
+<router-outlet></router-outlet>
