@@ -1,0 +1,24 @@
+kind: Rules
+metadata: 
+  namespace: k8s-add-env-var
+spec: 
+  - 
+    condition: 
+      deployedType: k8s.Resources
+    name: k8s.AddEnvVar
+    processor: 
+      - 
+        description: "Adding env var to k8s resources config map"
+        merge: 
+          type: overlay
+        parameters: 
+          template: |-
+              { "metadata" : {
+                 "data": {
+                   "SPECIAL_TYPE": "charm"
+                 }
+                }
+              }
+        phase: POST_FLIGHT
+        type: freemarker
+        weight: 30
